@@ -8,6 +8,7 @@ from google.appengine.api import mail, app_identity
 from api import HangmanApi
 
 from models import User
+from models import Game
 
 
 class SendReminderEmail(webapp2.RequestHandler):
