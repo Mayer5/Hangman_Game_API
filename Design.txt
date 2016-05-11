@@ -1,0 +1,30 @@
+Hangman Game Design
+
+1. At first, I use wiki to know about the rules about Hangman.
+I decided to set the guess attempts to 9.
+
+2. explore the architecture of the sample project "Guess a Number", 
+test the endpoints with API explorer. 
+This sample game contains three basic models: User, Game and Score, 
+which also contains some forms to store info.
+And the sample provides some API for manipulation: create_user, new_game, 
+get_game, make_move, get_scores, get_user_Scores, get_average_attempts and so on.
+The game also provides a cron task for sending remind email to user.
+
+3. Abstract the Hangman Game, there's not too much difference between which 
+and "Guess a Number" in basic structure:
+Hangman Game also has 3 basic model class: User, Game, Score and similar behaviors(API).
+So I decided to use the sample project as the base for Hangman.
+
+4. I add GameForms, UserForm, UserForms class to store more data, 
+also add more attrubutes in basic models: user.wins, user.total_played, user.win_percentage,
+game.history. There are corresponding API endpoints to achieve these attrubutes.
+
+5. The biggest trade offs in the design are the adaptions to fit the logic of Google Datastore,
+Which often makes simple task to be more elaborate such as grouping and counting where the count 
+has to be maintained through the whole process.
+
+6. The Hangman game can have different strategies for guessing, such like using "letter-frequency" 
+or vowels, we can consider to add the strategies for user in future implementation.
+
+
